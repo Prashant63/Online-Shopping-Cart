@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Loktra Online Store</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style/shopping.css">
+		<script src="script/angular.min.js"></script>
+		<script src="script/app.js"></script>
+		<script src="service/productDetailService.js"></script>
+		<script src="service/storageService.js"></script>
+
+		<script src="service/reviewerService.js"></script>
+		<script src="service/cartService.js"></script>
+
+		<script src="controller/productCtrl.js"></script>
+		<script src="controller/directive/navBarDirective.js"></script>
+		<script src="controller/directive/productDetailDirective.js"></script>
+		<script src="controller/directive/storeCart.js"></script>
+	</head>
+	<body>
+		<div ng-app="app">
+			<!-- Show Nav Bar -->
+			<nav-bar></nav-bar>
+
+			<div class="well well-lg">
+				<img src="images/Lok.png"/>
+				<div><small><em>Fastest growing online product store</em></small></div>
+				<div class="about"><h2>WE INNOVATE IDEA</h2><p>We serve better in traditional and domestic markets with the power of our ideas.</p></div>
+			</div>
+
+			<div class="container" ng-controller="shoppingKart">
+				<div id="page">
+					<span ng-hide="offset == 0" class="previous" ng-click="previous()"><a href="#">Previous</a></span>
+					<span ng-hide="offset + perPage >= allProduct" class="next" ng-click="next()"><a href="#">Next</a></span>
+				</div>
+
+				<div class="jumbotron" id="menu">
+					<product-detail products="productsPerPage" add-to-cart="addToCart" remove-from-cart="removeFromCart" change-quantity="changeQuantity"></product-detail>
+				</div>
+
+				<store-cart class="cart" ng-if="showCart" my-cart-products="myCartProducts" total-cart-price="totalCartPrice" total-cart-items="totalCartItems"></store-cart>
+			</div>
+
+			<div class="panel panel-default">
+					<div class="panel-footer">
+						<span>Follow us:</span>
+						<span><i class="fa fa-facebook"></i></span>
+						<span><i class="fa fa-linkedin"></i></span>
+						<span><i class="fa fa-twitter"></i></span>
+						<span>Contact Us - info@loktra.com | +91-9818777192</span>
+					</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<table class="table">
+	<thead>	
+		<tr>
+			<th colspan="2">Your cart summary</th>
+			<th class="glyphicon glyphicon-shopping-cart"></th>
+		<tr>
+		<tr>
+			<th>Items in cart</th>
+			<th colspan="2">Total Rs.</th>
+		</tr>
+		<tr>
+			<td>{{totalCartItems}}</td>
+			<td colspan="2">{{totalCartPrice}}</td>
+		</tr>
+		<tr>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Total Rs.</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="prod in myCartProducts">
+				<td>{{prod.name}}</td>
+				<td>{{prod.count}}</td>
+				<td>{{prod.price}}</td>
+		</tr>
+		<tr>
+			<td colspan="3">checkout</td>
+		</tr>
+	</tbody>
+</table>
